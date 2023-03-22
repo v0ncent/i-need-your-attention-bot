@@ -1,2 +1,2 @@
 # i-need-your-attention-bot
-A Discord Bot designed to spam ping someone until they send a message.
+One of the most annoying things to me is when I need to get someones attention in discord and they arent responding. So to counter this I created this simple bot to spam ping a target until they send a message.
