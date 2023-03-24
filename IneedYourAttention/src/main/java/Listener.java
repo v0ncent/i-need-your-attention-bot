@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 public final class Listener extends ListenerAdapter {
     private final String prefix = Config.get("prefix");
+    private final CommandManager manager = new CommandManager();
 
     @Override
     public void onReady(@NotNull ReadyEvent event) {
@@ -22,7 +23,7 @@ public final class Listener extends ListenerAdapter {
 
         String raw = event.getMessage().getContentRaw();
         if (raw.startsWith(prefix)) {
-
+            manager.handle(event);
         }
     }
 }
