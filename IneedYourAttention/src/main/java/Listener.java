@@ -5,6 +5,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 public final class Listener extends ListenerAdapter {
+    private final String prefix = Config.get("prefix");
+
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         Log.log(Listener.class, "Bot ready and online.", Log.LogType.INFO);
@@ -16,6 +18,11 @@ public final class Listener extends ListenerAdapter {
 
         if (user.isBot() || event.isWebhookMessage() ) {
             return;
+        }
+
+        String raw = event.getMessage().getContentRaw();
+        if (raw.startsWith(prefix)) {
+
         }
     }
 }
