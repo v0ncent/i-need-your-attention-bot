@@ -1,6 +1,7 @@
 import Cmd.Command;
 import Cmd.CommandContext;
 import Cmd.Ping;
+import Cmd.SpamTest;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;
@@ -13,7 +14,8 @@ public final class CommandManager {
     private final ArrayList<Command> commands = new ArrayList<>();
     public CommandManager(){
         addCommand(
-                new Ping()
+                new Ping(),
+                new SpamTest()
         );
     }
 
