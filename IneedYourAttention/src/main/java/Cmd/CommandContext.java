@@ -50,6 +50,7 @@ public final class CommandContext {
     public Member getMember() {
         return this.getEvent().getMember();
     }
+
     public ShardManager getShardManager() {
         return this.getJDA().getShardManager();
     }
