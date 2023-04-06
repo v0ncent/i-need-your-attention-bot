@@ -1,3 +1,4 @@
+import Cmd.MessageReader;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -36,7 +37,7 @@ public final class Main {
         BOT.setActivity(Activity.competing("Getting your attention the right way"));
         BOT.setStatus(OnlineStatus.ONLINE);
 
-        BOT.addEventListeners(new Listener());
+        BOT.addEventListeners(new Listener(), new MessageReader());
 
         enableAllIntents();
 

@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.sharding.ShardManager;
 import java.util.List;
@@ -35,8 +36,12 @@ public final class CommandContext {
         return this.args;
     }
 
-    public TextChannel getChannel() {
+    public TextChannel getTextChannel() {
         return this.getEvent().getChannel().asTextChannel();
+    }
+
+    public VoiceChannel getVoiceChannel() {
+        return this.getEvent().getChannel().asVoiceChannel();
     }
 
     public Message getMessage() {

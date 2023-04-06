@@ -4,7 +4,7 @@ import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
-public final class Listener extends ListenerAdapter {
+public class Listener extends ListenerAdapter {
     private final String prefix = Config.get("prefix");
     private final CommandManager manager = new CommandManager();
 
@@ -26,4 +26,5 @@ public final class Listener extends ListenerAdapter {
             manager.handle(event);
         }
     }
+
 }

@@ -8,7 +8,7 @@ public class Ping implements Command{
     public void handle(CommandContext ctx) {
         JDA jda = ctx.getJDA();
         jda.getRestPing().queue(
-                (ping) -> ctx.getChannel()
+                (ping) -> ctx.getTextChannel()
                         .sendMessageFormat("Reset ping: %sms\nWS ping: %sms", ping, jda.getGatewayPing()).queue()
         );
     }

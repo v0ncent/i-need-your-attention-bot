@@ -1,7 +1,7 @@
 import Cmd.Command;
 import Cmd.CommandContext;
+import Cmd.GetAttention;
 import Cmd.Ping;
-import Cmd.SpamTest;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public final class CommandManager {
     public CommandManager(){
         addCommand(
                 new Ping(),
-                new SpamTest()
+                new GetAttention()
         );
     }
 
