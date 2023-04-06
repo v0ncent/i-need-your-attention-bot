@@ -74,6 +74,10 @@ public final class CommandManager {
         // More bruh arg parsing
         List<String> commandArgs = Arrays.asList(args).subList(1,args.length);
 
-        cmd.handle(new CommandContext(event, commandArgs));
+        try {
+            cmd.handle(new CommandContext(event, commandArgs));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
