@@ -5,7 +5,7 @@ One of the most annoying things to me is when I need to get someones attention i
 Yes you heard me right, you as well can use this bot. All you need is a discord bot application created in your discord developer portal and you can use this bot's code to spam ping anyone you want.
 
 **Requirments**\
-All you need is ```JavaSDK 11``` and ```Maven 3.9.1```\
+All you need is ```JavaSDK 11``` and ```Maven 3.9.1```
 
 **How to use**
 1. Clone this repository onto your desktop 
