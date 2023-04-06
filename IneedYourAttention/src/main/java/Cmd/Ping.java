@@ -1,3 +1,5 @@
+// I-Need-Your-Attention-Bot Ping class
+// AUTH: v0ncent
 package Cmd;
 
 import net.dv8tion.jda.api.JDA;

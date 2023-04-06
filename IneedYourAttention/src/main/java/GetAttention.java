@@ -1,5 +1,9 @@
-package Cmd;
-
+// I-Need-Your-Attention-Bot GetAttention class
+// AUTH: @v0ncent
+// This command has to be in the default package in order to use the Listener class
+// I have no idea why ¯\_(ツ)_/¯
+import Cmd.Command;
+import Cmd.CommandContext;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import java.util.List;
@@ -23,7 +27,7 @@ public class GetAttention implements Command {
         while (!hasMessaged) {
             channel.sendMessage("Need your attention " + target.getUser().getAsMention()  + " !").queue();
 
-            if (MessageReader.getLastSpoken() == target.getUser() && MessageReader.getInChannel() == channel) {
+            if (LastMessenger.getLastMessenger() == target.getIdLong()) {
                 hasMessaged = true;
             }
 

@@ -1,3 +1,5 @@
+// I-Need-Your-Attention-Bot CommandContext class
+// AUTH: v0ncent
 package Cmd;
 
 import net.dv8tion.jda.api.JDA;
@@ -12,9 +14,17 @@ import net.dv8tion.jda.api.sharding.ShardManager;
 import java.util.List;
 
 public final class CommandContext {
+    /**Command from message to create context of*/
     private final MessageReceivedEvent event;
+   /**Provided command arguments from message.*/
     private final List<String> args;
 
+    /**
+     * Creates an instance of CommandContext from the given message
+     * and arguments.
+     * @param event Command message to create context for.
+     * @param args Arguments to create context for.
+     */
     public CommandContext(MessageReceivedEvent event, List<String> args) {
         this.event = event;
         this.args = args;

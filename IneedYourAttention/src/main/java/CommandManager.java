@@ -1,9 +1,9 @@
+// I-Need-Your-Attention-Bot CommandManager class
+// AUTH: v0ncent
 import Cmd.Command;
 import Cmd.CommandContext;
-import Cmd.GetAttention;
 import Cmd.Ping;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,13 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 public final class CommandManager {
+    /**List of all bot commands*/
     private final ArrayList<Command> commands = new ArrayList<>();
+
+    /**
+     * Creates an instance of Command Manager and populates
+     * the list of commands to be invoked.
+     */
     public CommandManager(){
         addCommand(
                 new Ping(),
@@ -19,6 +25,10 @@ public final class CommandManager {
         );
     }
 
+    /**
+     * Adds all passed command instances to the command list.
+     * @param cmd Command Instances to be added to list and set up to be invoked.
+     */
     private void addCommand(Command... cmd) {
         for (Command c : cmd) {
             boolean found = this.commands.stream().anyMatch( (command) -> command.getName().equalsIgnoreCase(c.getName()) );
@@ -29,6 +39,11 @@ public final class CommandManager {
         }
     }
 
+    /**
+     * Gets the wanted Command from the Command list.
+     * @param query Name of Command
+     * @return The Command stored within the Command list, Null if not found.
+     */
     public Command getCommand(String query) {
         String parsedQuery = query.toLowerCase(Locale.ROOT);
 
@@ -39,6 +54,10 @@ public final class CommandManager {
         return null;
     }
 
+    /**
+     * Handles command invoking from message starting with prefix.
+     * @param event Message containing wanted command to invoke.
+     */
     public void handle(MessageReceivedEvent event) {
         // Bruh argument parsing
         String[] args = event.getMessage().getContentRaw().replaceFirst("(?i)" + Pattern.quote(Config.get("prefix")),"").split("\\s+");

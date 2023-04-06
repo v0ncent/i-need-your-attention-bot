@@ -1,4 +1,5 @@
-import Cmd.MessageReader;
+// I-Need-Your-Attention-Bot Main class
+// AUTH: @v0ncent
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -10,8 +11,13 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 public final class Main {
     private Main(){
     }
+   /**Instance of discord bot from developer token.*/
     private static final JDABuilder BOT = JDABuilder.createDefault(Config.get("token"));
 
+    /**
+     * Enables all gateway intents and cache policies
+     * needed for bot functionality.
+     */
     private static void enableAllIntents() {
         BOT.setChunkingFilter(ChunkingFilter.ALL);
         BOT.setMemberCachePolicy(MemberCachePolicy.ALL);
@@ -33,11 +39,11 @@ public final class Main {
     }
 
     public static void main(String[] args) {
-        // gateway intent stuff - Set event listeners and statuses - Build the bot
+        // gateway intent stuff - Set event listeners and statuses - Build the bot (aka have it log in)
         BOT.setActivity(Activity.competing("Getting your attention the right way"));
         BOT.setStatus(OnlineStatus.ONLINE);
 
-        BOT.addEventListeners(new Listener(), new MessageReader());
+        BOT.addEventListeners(new Listener(), new LastMessenger());
 
         enableAllIntents();
 
