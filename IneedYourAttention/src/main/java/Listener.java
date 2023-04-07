@@ -12,7 +12,7 @@ public class Listener extends ListenerAdapter {
     /**Instance of CommandManager*/
     private final CommandManager manager = new CommandManager();
 
-    private final Const constants = new Const();
+    private final LastMessaged lastMessaged = new LastMessaged();
 
     @Override
     public void onReady(@NotNull ReadyEvent event) {
@@ -27,12 +27,12 @@ public class Listener extends ListenerAdapter {
             return;
         }
 
-        constants.getLastMessaged().setLastMessaged(user);
-        constants.getLastMessaged().setInChannel(event.getChannel());
+        lastMessaged.setLastMessaged(user);
+        lastMessaged.setInChannel(event.getChannel());
 
         String raw = event.getMessage().getContentRaw();
         if (raw.startsWith(prefix)) {
-            manager.handle(event,this.constants.getLastMessaged());
+            manager.handle(event,this.lastMessaged);
         }
     }
 
