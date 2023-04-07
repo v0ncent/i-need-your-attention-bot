@@ -1,13 +1,12 @@
 // I-Need-Your-Attention-Bot Ping class
 // AUTH: v0ncent
-package Cmd;
 
 import net.dv8tion.jda.api.JDA;
 
 public class Ping implements Command{
 
     @Override
-    public void handle(CommandContext ctx) {
+    public void handle(CommandContext ctx, LastMessaged lastMessaged) {
         JDA jda = ctx.getJDA();
         jda.getRestPing().queue(
                 (ping) -> ctx.getTextChannel()

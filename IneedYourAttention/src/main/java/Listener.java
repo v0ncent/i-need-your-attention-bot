@@ -12,6 +12,8 @@ public class Listener extends ListenerAdapter {
     /**Instance of CommandManager*/
     private final CommandManager manager = new CommandManager();
 
+    private final Const constants = new Const();
+
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         Log.log(Listener.class, "Bot ready and online.", Log.LogType.INFO);
@@ -25,9 +27,12 @@ public class Listener extends ListenerAdapter {
             return;
         }
 
+        constants.getLastMessaged().setLastMessaged(user);
+        constants.getLastMessaged().setInChannel(event.getChannel());
+
         String raw = event.getMessage().getContentRaw();
         if (raw.startsWith(prefix)) {
-            manager.handle(event);
+            manager.handle(event,this.constants.getLastMessaged());
         }
     }
 

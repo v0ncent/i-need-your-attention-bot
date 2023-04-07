@@ -1,8 +1,5 @@
 // I-Need-Your-Attention-Bot CommandManager class
 // AUTH: v0ncent
-import Cmd.Command;
-import Cmd.CommandContext;
-import Cmd.Ping;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,7 +55,7 @@ public final class CommandManager {
      * Handles command invoking from message starting with prefix.
      * @param event Message containing wanted command to invoke.
      */
-    public void handle(MessageReceivedEvent event) {
+    public void handle(MessageReceivedEvent event, LastMessaged lastMessaged) {
         // Bruh argument parsing
         String[] args = event.getMessage().getContentRaw().replaceFirst("(?i)" + Pattern.quote(Config.get("prefix")),"").split("\\s+");
         String toInvoke = args[0].toLowerCase(Locale.ROOT);
@@ -74,10 +71,7 @@ public final class CommandManager {
         // More bruh arg parsing
         List<String> commandArgs = Arrays.asList(args).subList(1,args.length);
 
-        try {
-            cmd.handle(new CommandContext(event, commandArgs));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        cmd.handle(new CommandContext(event, commandArgs), lastMessaged);
     }
 }

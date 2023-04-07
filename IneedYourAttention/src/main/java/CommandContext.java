@@ -1,6 +1,5 @@
 // I-Need-Your-Attention-Bot CommandContext class
 // AUTH: v0ncent
-package Cmd;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;

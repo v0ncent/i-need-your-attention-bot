@@ -43,7 +43,7 @@ public final class Main {
         BOT.setActivity(Activity.competing("Getting your attention the right way"));
         BOT.setStatus(OnlineStatus.ONLINE);
 
-        BOT.addEventListeners(new Listener(), new LastMessenger());
+        BOT.addEventListeners(new Listener());
 
         enableAllIntents();
 
