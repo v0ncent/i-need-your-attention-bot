@@ -5,6 +5,8 @@ public final class LastMessaged {
     private User lastMessaged;
     private Channel inChannel;
 
+    public int threadCount = 0;
+
     public LastMessaged(){
         lastMessaged = null;
         inChannel = null;
@@ -25,4 +27,5 @@ public final class LastMessaged {
     public Channel getInChannel() {
         return inChannel;
     }
+
 }

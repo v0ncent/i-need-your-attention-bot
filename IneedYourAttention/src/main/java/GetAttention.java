@@ -19,9 +19,25 @@ public class GetAttention implements Command {
             return;
         }
 
+        if (lastMessaged.threadCount == 3) {
+            channel.sendMessage("Too many threads running! Please wait for targeted user to reply before executing again.").queue();
+            return;
+        }
+
         final Member target = mentionedMembers.get(0);
 
-
+        new Thread(
+                () -> {
+                    lastMessaged.threadCount++;
+                    while (true) {
+                        channel.sendMessage("Need your attention " + target.getAsMention() + "!").queue();
+                        if (lastMessaged.getLastMessaged() == target.getUser() && lastMessaged.getInChannel() == channel) {
+                            channel.sendMessage("Attention received!").queue();
+                            break;
+                        }
+                    }
+                }
+        ).start();
 
     }
 
