@@ -35,5 +35,4 @@ public class Listener extends ListenerAdapter {
             manager.handle(event,this.lastMessaged);
         }
     }
-
 }
