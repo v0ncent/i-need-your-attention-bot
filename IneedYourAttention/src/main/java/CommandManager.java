@@ -18,7 +18,8 @@ public final class CommandManager {
     public CommandManager(){
         addCommand(
                 new Ping(),
-                new GetAttention()
+                new GetAttention(),
+                new Help()
         );
     }
 
