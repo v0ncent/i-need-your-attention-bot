@@ -1,11 +1,14 @@
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.Channel;
 
+/**
+ * Object for reading incoming messages in Guild channels.
+ */
 public final class LastMessaged {
+    /**The user who has sent the most recent message to the Guild.*/
     private User lastMessaged;
+    /**The TextChannel that the most recent message was sent in.*/
     private Channel inChannel;
-
-    public int threadCount = 0;
 
     public LastMessaged(){
         lastMessaged = null;
